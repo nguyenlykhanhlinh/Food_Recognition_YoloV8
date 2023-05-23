@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Uploaded Image</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles/result.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+            <h1>YOLOV8 Object Detection</h1>
+            {% if filename %}   
+            <div class="row my-3">
+                <div class="col-md-6 image1">
+                    <h2>Uploaded Image</h2>
+                    <img src="{{ url_for('static', filename='images/' + filename) }}" alt="uploaded image" width="500">
+                </div>
+                <div class="col-md-6 image1">
+                    <h2>Result with Bounding Box</h2>
+                    <img src="{{ url_for('static', filename='images/result.jpg') }}" alt="result with bounding box" width="500">
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="predict-container">
+            <div class="row d-flex">
+                <div class="col-md-6">
+                    <a class="upImg d-flex align-items-end justify-content-center" href="{{ url_for('index') }}">Upload another image</a>
+                </div>
+
+                <div class="col-md-6 predict">
+                    {% if not prediction %}
+                        <p>không có món ăn</p>
+                    {% else %}
+                        <p class="d-inline-flex">Prediction: 
+                            {% for food in prediction %}                 
+                                <p>{{food}},</p>
+                            {% endfor %}
+                        </p>
+                    {% endif %}       
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    <div class="mt-2 p-3">
+        <p></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
