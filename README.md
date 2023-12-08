@@ -1,7 +1,7 @@
 # Food_Recognition_YoloV8
 ###Ứng dụng AI nhận diện đồ ăn 
 
-##MỤC TIÊU ĐỀ TÀI
+**##MỤC TIÊU ĐỀ TÀI**
 
 - Mục tiêu của việc sử dụng yolov8 trong ứng dụng AI nhận diện đồ ăn là để xây dựng một hệ thống nhận diện đồ ăn tự động, cho phép phát hiện và xác định các món ăn trong hình ảnh hoặc video qua thời gian thực (real-time). 
 
